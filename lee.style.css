@@ -1,6 +1,6 @@
 /* Wendy Lee */
 
-/* --------------- ADD CSS RESET TO THE FILE HERE --------------- */
+/* --------------- CSS RESET --------------- */
 html, body, header, main, footer, section, 
 h1, h2, h3, h4, p, small, img, picture {
     margin: 0;
@@ -11,8 +11,7 @@ h1, h2, h3, h4, p, small, img, picture {
     vertical-align: baseline;
 }
 
-/* ----- AUTOPREFIXER FOR VS CODE WAS USED FOR VENDOR PREFIXES ----- */
-/* ---------- VARIABLES ---------- */
+/* ----- VARIABLES ---------- */
 :root {
     --red: #760029;
     --pink: #9a0093;
@@ -34,8 +33,7 @@ h1, h2, h3, h4, p, small, img, picture {
     line-height: 1.35;
 }
 
-/* ----- CHECK FOR USER DARK MODE PREFERENCE ----- */
-/* --------------- BEGIN USER PREFERS DARK COLOR SCHEME QUERY --------------- */
+/* ----- DARK MODE PREFERENCE ----- */
 @media (prefers-color-scheme: dark) {
     body {
         background-color: var(--dark-gray);
@@ -47,7 +45,6 @@ h1, h2, h3, h4, p, small, img, picture {
         background-color: var(--black);
     }
 }
-/* --------------- END USER PREFERS DARK COLOR SCHEME QUERY --------------- */
 
 /* ----- HEADINGS ----- */
 h1, h2, h3, h4 {
@@ -72,48 +69,38 @@ img {
     margin: 0.5em 0;
 }
 
-/* ----- ANIMATED ICON ----- */
-/* Icon and animation code from https://typogram.github.io/Anicons/ */
+/* ----- ANIMATED ICONS ----- */
 .icon {
-    font-family: "Anicons Regular";
+    font-family: "Anicons Regular", "Anicons Color", sans-serif;
     font-size: 2em;
     display: inline-block;
     margin: 0 0.5em;
-    -webkit-animation: icon-animation 1s ease-in-out infinite;
-            animation: icon-animation 1s ease-in-out infinite;
+    animation: icon-animation 1s ease-in-out infinite;
+    font-variation-settings: "TIME" 1;
+    transition: font-variation-settings 0.4s ease;
     overflow: visible;
+}
+
+.icon:hover {
+    font-variation-settings: "TIME" 100;
 }
 
 footer .icon {
     font-size: 1em;
 }
 
-@-webkit-keyframes icon-animation {
-    0% { font-variation-settings: "TIME" 1; }
-  100% { font-variation-settings: "TIME" 100; }
-}
-
 @keyframes icon-animation {
     0% { font-variation-settings: "TIME" 1; }
-  100% { font-variation-settings: "TIME" 100; }
+    100% { font-variation-settings: "TIME" 100; }
 }
 
-/* ----- HANDLE PREFERS REDUCED MOTION FOR THE ICON ANIMATIONS ----- */
-/* --------------- BEGIN USER PREFERS REDUCED MOTION QUERY --------------- */
+/* ----- REDUCED MOTION PREFERENCE ----- */
 @media (prefers-reduced-motion: reduce) {
     .icon {
-        -webkit-animation: none;
-                animation: none;
-    }
-    
-    @-webkit-keyframes icon-animation {
-        0% { font-variation-settings: "TIME" 1; }
-    }
-    @keyframes icon-animation {
-        0% { font-variation-settings: "TIME" 1; }
+        animation: none;
+        font-variation-settings: "TIME" 1;
     }
 }
-/* --------------- END USER PREFERS REDUCED MOTION QUERY --------------- */
 
 /* ----- TEXT ----- */
 p, small {
@@ -161,8 +148,7 @@ img {
     float: left;
 }
 
-/* ---------- SMALL SCREEN STYLES ---------- */
-/* --------------- BEGIN SMALL SCREEN SIZES --------------- */
+/* ---------- SMALL SCREEN STYLES (620px+) ---------- */
 @media (min-width: 620px) {
     header, footer {
         background-color: var(--lime-green);
@@ -191,10 +177,8 @@ img {
         max-width: 200px;
     }
 }
-/* --------------- END SMALL SCREEN SIZES --------------- */
 
-/* ---------- MEDIUM SCREEN STYLES ---------- */
-/* --------------- BEGIN MEDIUM SCREEN SIZES --------------- */
+/* ---------- MEDIUM SCREEN STYLES (900px+) ---------- */
 @media (min-width: 900px) {
     header, footer {
         background-color: var(--black);
@@ -223,10 +207,8 @@ img {
         grid-row: 3/5;
     }
 }
-/* --------------- END MEDIUM SCREEN SIZES --------------- */
 
-/* ---------- LARGE SCREEN STYLES ---------- */
-/* --------------- BEGIN LARGE SCREEN SIZES --------------- */
+/* ---------- LARGE SCREEN STYLES (1200px+) ---------- */
 @media (min-width: 1200px) {
     header, footer {
         background-color: var(--lime-green);
@@ -261,16 +243,13 @@ img {
         grid-row: 3/4;
     }
     
-    /* ---------- ADJUSTING RESPONSIVE IMAGE SIZE ---------- */
     img {
         width: 300px;
         max-width: 300px;
     }
 }
-/* --------------- END LARGE SCREEN SIZES --------------- */
 
-/* ---------- EXTRA LARGE SCREEN STYLES ---------- */
-/* --------------- BEGIN EXTRA LARGE SCREEN SIZES --------------- */
+/* ---------- EXTRA LARGE SCREEN STYLES (1380px+) ---------- */
 @media (min-width: 1380px) {
     header, footer {
         background-color: var(--orange);
@@ -339,4 +318,3 @@ img {
         padding-top: 2em;
     }
 }
-/* --------------- END EXTRA LARGE SCREEN SIZES --------------- */
